@@ -37,9 +37,9 @@ spec:
               command:
                 - pg_isready
                 - -U
-                - watersystem
+                - watersystem_ml
                 - -d
-                - watersystem
+                - watersystem_ml
             initialDelaySeconds: 10
             periodSeconds: 10
           livenessProbe:
