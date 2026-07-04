@@ -47,9 +47,9 @@ spec:
               command:
                 - pg_isready
                 - -U
-                - watersystem
+                - watersystem_ml
                 - -d
-                - watersystem
+                - watersystem_ml
             initialDelaySeconds: 30
             periodSeconds: 20
   volumeClaimTemplates:
