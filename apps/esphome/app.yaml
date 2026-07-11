@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
     namespace: home-automation
   source:
-    repoURL: https://github.com/bruli/k3s-infra.git
+    repoURL: https://github.com/bruli-lab/k3s-infra.git
     targetRevision: main
     path: apps/esphome/manifests
   syncPolicy:

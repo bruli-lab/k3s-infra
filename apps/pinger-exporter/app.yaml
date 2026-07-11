@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/bruli/pinger-exporter.git
+    repoURL: https://github.com/bruli-lab/pinger-exporter.git
     targetRevision: main
     path: manifests
   destination:

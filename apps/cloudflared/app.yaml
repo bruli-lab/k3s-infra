@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/bruli/k3s-infra.git
+    repoURL: https://github.com/bruli-lab/k3s-infra.git
     targetRevision: main
     path: infra/cloudflared
   destination:

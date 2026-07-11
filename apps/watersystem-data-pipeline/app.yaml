@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/bruli/waterSystem-data-pipeline.git
+    repoURL: https://github.com/bruli-lab/waterSystem-data-pipeline.git
     targetRevision: main
     path: manifests
   destination:
