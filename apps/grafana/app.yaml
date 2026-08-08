@@ -71,11 +71,11 @@ spec:
           path: /
           pathType: Prefix
           hosts:
-            - grafana.192.168.1.14.nip.io
+            - grafana.192.168.1.20.nip.io
           tls:
             - secretName: grafana-tls
               hosts:
-                - grafana.192.168.1.14.nip.io
+                - grafana.192.168.1.20.nip.io
 
         deploymentStrategy:
           type: Recreate

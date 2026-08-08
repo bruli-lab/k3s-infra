@@ -31,7 +31,7 @@ spec:
           ingressClassName: traefik
           annotations:
             traefik.ingress.kubernetes.io/router.entrypoints: web
-          host: longhorn.192.168.1.14.nip.io
+          host: longhorn.192.168.1.20.nip.io
           tls: false
           path: /
           pathType: Prefix
