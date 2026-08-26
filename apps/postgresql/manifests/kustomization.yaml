@@ -6,3 +6,5 @@ resources:
   - externalsecret.yaml
   - service.yaml
   - statefulset.yaml
+  - statefulset-18.yaml
+  - service-18.yaml
