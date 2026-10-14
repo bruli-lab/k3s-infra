@@ -13,6 +13,11 @@ spec:
     helm:
       releaseName: influxdb
       values: |
+        pdb:
+          create: true
+          minAvailable: null
+          maxUnavailable: 1
+          
         adminUser:
           organization: home
           bucket: bonsai-data
