@@ -29,11 +29,11 @@ spec:
   data:
     - secretKey: username
       remoteRef:
-        key: argocd/my-record-collection
+        key: argocd/my-record_collection
         property: USERNAME
     - secretKey: token
       remoteRef:
-        key: argocd/my-record-collection
+        key: argocd/my-record_collection
         property: TOKEN
 ---
 apiVersion: argoproj.io/v1alpha1
