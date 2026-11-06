@@ -1,0 +1,64 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: seaweedfs
+  namespace: argocd
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: storage
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+  sources:
+  - repoURL: https://seaweedfs.github.io/seaweedfs/helm
+    chart: seaweedfs
+    targetRevision: 4.52.0
+    helm:
+      releaseName: seaweedfs
+      values: |
+        image:
+          tag: "4.52"
+        master:
+          enabled: false
+        volume:
+          enabled: false
+        filer:
+          enabled: false
+        s3:
+          enabled: false
+        allInOne:
+          enabled: true
+          replicas: 1
+          updateStrategy:
+            type: Recreate
+          data:
+            type: persistentVolumeClaim
+            storageClass: longhorn
+            size: 20Gi
+            annotations:
+              argocd.argoproj.io/sync-options: Prune=false,Delete=false
+          s3:
+            enabled: true
+            port: 8333
+            enableAuth: true
+            existingConfigSecret: seaweedfs-s3-config
+            createBuckets:
+              - name: record-photos
+                anonymousRead: false
+          service:
+            type: ClusterIP
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+  - repoURL: https://github.com/bruli-lab/k3s-infra.git
+    targetRevision: main
+    path: apps/seaweedfs/manifests
