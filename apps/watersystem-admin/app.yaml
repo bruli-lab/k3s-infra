@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: watersystem-admin
+  namespace: argocd
+  labels:
+    app.kubernetes.io/part-of: apps
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/bruli-lab/waterSystemAdmin.git
+    targetRevision: main
+    path: manifests
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: apps
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
